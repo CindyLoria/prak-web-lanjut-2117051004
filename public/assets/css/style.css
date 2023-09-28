@@ -17,7 +17,7 @@ body{
 .card{
     position: relative;
     width: 350px;
-    height: 190px;
+    height: 400px;
     /* height: 450px; */
     background: whitesmoke;
     border-radius: 20px;
@@ -69,11 +69,11 @@ body{
     text-align: center;
     width: 100%;
     transition: 0.5s;
-    transform: translateY(150px);
+    transform: translateY(210px);
 }
 
 .card:hover .content .details{
-    transform: translateY(20px);
+    transform: translateY(70px);
 }
 
 .card .content .details h2{
@@ -122,7 +122,7 @@ body{
 }
 .input-box input{
     width: 100%;
-    height: 100%;
+    height: 60px;
     background: transparent;
     border: none;
     outline: none;
@@ -134,12 +134,26 @@ body{
 
 }
 .input-box input::placeholder{
-    color: #fff;
+    color: black;
 }
+
+.input-box select{
+    width: 100%;
+    height: 60px;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(255, 255, 255, 2);
+    border-radius: 40px;
+    font-size: 16px;
+    color: black;
+    padding: 20px 45px 20px 20px;
+}
+
 .wrapper .btn{
     width: 100%;
     height: 45px;
-    background: azure;
+    background: azure ;
     border: none;
     outline: none;
     border-radius: 40px;
@@ -150,3 +164,21 @@ body{
     font-weight: 600;
 }
 
+.row{
+    width: 100%;
+    color: red;
+}
+.rowprof{
+    width: 250px;
+    height: 100px;
+    color: green;
+    padding: 10px 30px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    font-weight: 500 ;
+    /* background: cadetblue;
+    color: white; */
+    cursor: pointer;
+}
