@@ -12,3 +12,4 @@ $routes->get('user/profile/(:any)/(:any)/(:any)', [UserController::class, 'profi
 #form
 $routes->get('/user/create', 'UserController::create');
 $routes->post('/user/store', 'UserController::store');
+$routes->get('/user', 'UserController::index');
