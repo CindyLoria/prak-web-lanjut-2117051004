@@ -1,5 +1,6 @@
 <?php
 
+use App\Controllers\UserController; 
 use App\Controllers\Home;
 use CodeIgniter\Router\RouteCollection;
 
@@ -13,3 +14,4 @@ $routes->get('user/profile/(:any)/(:any)/(:any)', [UserController::class, 'profi
 $routes->get('/user/create', 'UserController::create');
 $routes->post('/user/store', 'UserController::store');
 $routes->get('/user', 'UserController::index');
+$routes->get('user/(:any)', [UserController::class, 'show']);

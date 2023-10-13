@@ -3,14 +3,15 @@
 
     <div class="card">
         <div class="imgg">
-        <img src="<?php echo base_url('cindy.jpg'); ?>" alt="cindy"  border="1.5px" ><br>
+        <img src="<?= $user['foto'] ?? '<default-foto>' ?>" alt="cindy"  border="1.5px" ><br>
         </div>
         <div class="content">
             <div class="details">
+    
                 <div class="btn">
-                <button type="button" style="width: 250px;">Nama : <?= $nama ?></button><br><br>
-                <button type="button" style="width: 250px;">NPM : <?= $npm ?></button><br><br>
-                <button type="button" style="width: 250px;">Kelas : <?= $kelas ?></button><br><br>
+                <button type="button" style="width: 250px;">Nama : <?= $user['nama'] ?></button><br><br>
+                <button type="button" style="width: 250px;">NPM : <?= $user['npm'] ?></button><br><br>
+                <button type="button" style="width: 250px;">Kelas : <?= $user['nama_kelas'] ?></button><br><br>
                 
                 </div>
                 <?php if(session()->getFlashdata('success')) : ?>
