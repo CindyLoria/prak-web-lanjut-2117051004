@@ -34,9 +34,15 @@ class UserController extends BaseController
     }
     public function create(){
 
-        // $kelasModel = new KelasModel();
+        $this->kelasModel = new KelasModel();
         $kelas = $this->kelasModel->getKelas();
 
+        if(session('validation')!=null){
+            $validation = session('validation');
+        }
+        else{
+            $validation = \Config\Services::validation();
+        }
         // $kelas = [
         //     [
         //         'id' => 1, 
@@ -57,7 +63,8 @@ class UserController extends BaseController
         // ]; 
         $data = [
             'title' => 'Create User',
-            'kelas' => $kelas
+            'kelas' => $kelas,
+            'validation' => $validation,
         ]; 
         return view('create_user', $data);
     }
@@ -72,11 +79,20 @@ class UserController extends BaseController
             return redirect()->back()->withInput();
         }
 
+        $path = 'assets/uploads/img/';
+        $foto = $this->request->getFile('foto');
+        $name = $foto->getRandomName();
+
+        if($foto->move($path, $name)){
+            $foto = base_url($path . $name);
+        }
+
         $this->userModel->saveUser([
             'nama' => $this->request->getVar('nama'),
             'npm' => $this->request->getVar('npm'),
             'id_kelas' => $this->request->getVar('kelas'),
             // 'id_kelas' => $kelasModel->find($kelas)['nama_kelas']
+            'foto' => $foto
         ]);
 
         // $nama = $this->request->getPost('nama');
@@ -97,6 +113,14 @@ class UserController extends BaseController
         // dd($data);
 
         // return view('profile',$data);
+    }
+    public function show($id){
+        $user= $this->userModel->getUser($id);
+        $data = [
+            'title' => 'Profile',
+            'user' => $user
+        ];
+        return view('profile', $data);
     }
 
 }

@@ -2,7 +2,7 @@
 <?= $this->section('content')?>
 
     <div class="wrapper">
-        <form action="<?=base_url('/user/store')?>" method="post">
+        <form action="<?=base_url('/user/store')?>" method="post" enctype ="multipart/form-data">
             <h1>Login</h1>
             <br>
             <?php if(session()->getFlashdata('errors')) : ?>
@@ -10,6 +10,9 @@
                     <?= session()->getFlashdata('errors')?>
                 </div>
             <?php endif; ?>
+
+            <input type="file" name="foto" id="foto">
+
             <div class="input-box">
                 <input type="text" placeholder="Nama" name="nama"
                 value="<?=old('nama')?>">
