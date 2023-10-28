@@ -7,7 +7,7 @@
             <input type="hidden" name="_method" value="PUT">
             <?= csrf_field()?>
 
-            <h1>Login</h1>
+            <h1>Edit User</h1>
             <br>
             <?php if(session()->getFlashdata('errors')) : ?>
                 <div class="row">
